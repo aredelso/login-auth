@@ -1,0 +1,8 @@
+.basic-btn {
+  transition: ease all .5s;
+}
+
+.basic-btn:disabled {
+  background-color: #BBBBBB;
+  cursor: default;
+}
