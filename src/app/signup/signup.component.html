@@ -7,9 +7,12 @@
 
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
 
-    <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="txt" required>
-    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
-
+    <input type="text" placeholder="Email Address" [(ngModel)]="email" name="email" class="txt" required>
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" class="txt" required>
+    <ng2-password-strength-bar
+      [passwordToCheck]="password"
+      [barLabel]="barLabel">
+    </ng2-password-strength-bar>
 
     <button type="submit" [disabled]="!formData.valid" class="basic-btn">Create My Account</button>
   </form>

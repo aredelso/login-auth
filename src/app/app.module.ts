@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
+import { PasswordStrengthBar } from 'ng2-password-strength-bar';
 
 import {  AuthGuard } from './auth.service';
 import {  routes } from './app.routes';
@@ -27,7 +28,8 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent
+    MembersComponent,
+    PasswordStrengthBar
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Router } from '@angular/router';
 import { moveIn, fallIn } from '../router.animations';
+import { PasswordStrengthBar } from 'ng2-password-strength-bar';
+import { zxcvbn } from 'zxcvbn';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +16,8 @@ export class SignupComponent implements OnInit {
 
   state: string = '';
   error: any;
+
+  public barLabel: string = "Password strength:";
 
   constructor(private af: AngularFire, private router: Router) {
 
@@ -37,6 +41,16 @@ export class SignupComponent implements OnInit {
         console.log(err);
         this.error = err;
       })
+    }
+  }
+
+  strongPassword(p) {
+    var result = zxcvbn(p);
+    var score = result.score;
+    if(score >= 2) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
